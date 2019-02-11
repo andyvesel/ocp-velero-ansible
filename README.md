@@ -23,12 +23,12 @@ SSH Key to use for the install:
 ```yaml
 aws_access_key_id: ******
 aws_secret_access_key: *******
-pullSecret: "{{ lookup('file', '{{ playbook_dir }}//config/pull-secret') | from_json }}" # Do not modify this line
-sshKey: "ssh-rsa ************************"
-baseDomain: mg.dog8code.com
-masterReplicas: 1
-workerReplicas: 1
-awsRegion: us-east-2
+pull_secret: "{{ lookup('file', '{{ playbook_dir }}//config/pull-secret') | from_json }}" # Do not modify this line
+ssh_key: "ssh-rsa ************************"
+base_domain: mg.dog8code.com
+master_replicas: 1
+worker_replicas: 1
+aws_region: us-east-2
 ```
 
 The Ansible tasks will write the credentials to `~/.aws/credentials` if they do
@@ -60,14 +60,14 @@ time.
 If you wish to launch an Ark Server that uses a real S3 bucket, you must first
 get credentials for the bucket:
 ```
-$ ansible-playbook create-aws-bucket-creds.yml -e awsRegion=us-east-2
+$ ansible-playbook create-aws-bucket-creds.yml -e aws_region=us-east-2
 ```
 
-Then launch the Ark Sever with `veleroProvider` set to `aws` and a specified
-`awsRegion` (alternatively both can be set in `config/defaults.yml` and
+Then launch the Ark Sever with `velero_provider` set to `aws` and a specified
+`aws_region` (alternatively both can be set in `config/defaults.yml` and
 included as shown above):
 ```
-$ ansible-playbook launch-ark.yml -e veleroProvider=aws -e awsRegion=us-east-2
+$ ansible-playbook launch-ark.yml -e velero_provider=aws -e aws_region=us-east-2
 ```
 
 ### Destroying Ark

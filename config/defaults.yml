@@ -1,8 +1,8 @@
 aws_access_key_id:
 aws_secret_access_key:
-pullSecret: "{{ lookup('file', '{{ playbook_dir }}/config/pull-secret') | from_json }}" # Do not modify this line
-sshKey: ""
-baseDomain: mg.dog8code.com # Default mg.dog8code.com
-masterReplicas: 1 # Default 1
-workerReplicas: 1 # Default 1
-awsRegion: us-east-2 # Default us-east-2
+pull_secret: "{{ lookup('file', '{{ playbook_dir }}/config/pull-secret') | from_json }}" # Do not modify this line
+ssh_key: ""
+base_domain: mg.dog8code.com # Default mg.dog8code.com
+master_replicas: 1 # Default 1
+worker_replicas: 1 # Default 1
+aws_region: us-east-2 # Default us-east-2
